@@ -1,0 +1,179 @@
+<style>
+  article {
+    border: none;
+    box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  article:hover {
+    transform: translateY(-8px);
+  }
+  .post-body {
+    position: relative;
+  }
+  .post-body:hover .post-top-share {
+    display: block;
+  }
+  .post-top-share {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    padding: 0 6px;
+    z-index: 3;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .post-top-share i {
+    line-height: 24px;
+    font-size: 10px;
+    padding-right: 5px;
+  }
+  .post-top-share .share {
+    font-size: 10px;
+    text-transform: uppercase;
+    padding-left: 10px;
+    border-left: 1px solid #555;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .post-top-share:hover .socials {
+    display: flex;
+  }
+  .post-top-share .socials {
+    display: none;
+    justify-content: space-between;
+  }
+  .post-top-share .socials span {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 5px;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .post-top-share .socials .fa-brands {
+    color: white;
+    font-size: 12px;
+    padding: 0;
+  }
+  .post-media-body figure {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+  }
+  .post-media-body figure img:hover {
+    transition: all 0.6s ease;
+    transform: scale(1.1);
+  }
+  .post-media-body figure img {
+    transition: all 0.6s ease;
+    border-radius: 6px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    max-width: 100%;
+    height: auto;
+  }
+  .post-content-body {
+    padding: 30px;
+  }
+  .post-content-body h4 a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #3a3838;
+    font-size: 17px;
+    line-height: 27px;
+    font-family: "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+  .post-content-body h4 a:hover {
+    border-bottom: 1px solid #3a3838;
+  }
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f7f6f2;
+    border-radius: 0px 0px 6px 6px;
+    border-top: 1px solid #dbdbd6;
+  }
+  .post-category {
+    padding: 8px 11px;
+  }
+  .post-category a {
+    background-color: transparent;
+    border: none;
+    text-transform: uppercase;
+    color: inherit;
+    padding: 0px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 10px;
+  }
+  .post-category a:hover {
+    border-bottom: 1px solid #3a3838;
+  }
+  .meta-like {
+    padding: 8px 15px;
+    min-height: 38px;
+    border-left: 1px solid #dbdbd6;
+  }
+  .meta-like:hover {
+    color: #ed5755;
+  }
+</style>
+<div class="item scale-in-center">
+  <article>
+    <div class="post-body">
+      <div class="post-top-share fade-in">
+        <i class="fa-sharp fa-solid fa-plus fa-xl text-white"></i>
+        <span class="share text-white">SHARE</span>
+        <div class="socials">
+          <span class="bg-facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </span>
+          <span class="bg-twitter">
+            <i class="fa-brands fa-twitter"></i>
+          </span>
+          <span class="bg-instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </span>
+          <span class="bg-pinterest">
+            <i class="fa-brands fa-pinterest"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="post-media-body">
+        <a [href]="content.postUrl" target="_blank">
+          <figure>
+            <img [src]="content.img" [alt]="content.title" />
+          </figure>
+        </a>
+      </div>
+      <div class="post-content-body">
+        <h4 class="post-title">
+          <a [href]="content.postUrl" target="_blank">{{ content.title }}</a>
+        </h4>
+      </div>
+    </div>
+
+    <div class="post-meta">
+      <div class="post-category flex flex-col">
+        <a [href]="content.categoryUrl" target="_blank">{{
+          content.category
+        }}</a>
+      </div>
+      <div class="meta-like">
+        <a href="">
+          <i class="fa-solid fa-heart"></i>
+          {{ content.likes }}
+        </a>
+      </div>
+    </div>
+  </article>
+</div>

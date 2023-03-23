@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  font-family: "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.428571429;
+  color: #63484d;
+  background-color: #f2f0e7;
+  background-image: url('src/assets/images/beige-dotts.png');
+}
+.bg-facebook{
+  background:#1877F2 !important;
+}
+.bg-twitter{
+  background: #1DA1F2 !important;
+}
+.bg-instagram{
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%) !important;
+}
+.bg-pinterest{
+  background: #BD081C !important;
+}
+.bg-red-stripe{
+  background-image: url("src/assets/images/red-stripe.jpg");
+}
+.slide-right {
+  animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-50px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+}
+.fade-in {
+  animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.scale-in-center {
+  animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
