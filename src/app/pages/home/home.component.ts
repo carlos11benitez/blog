@@ -131,85 +131,36 @@ export class HomeComponent {
       category: 'Ensayo Literario',
       likes: 1
     },
-    {
-      postUrl: 'https://lapirateca.com/filosofia/mundo-nosotros-yo-ensayos-cosmopolieticos-antonio-campillo/',
-      img: 'https://lapirateca.com/wp-content/uploads/2023/01/9788425441202_1_2-400x612.jpg',
-      title: '15) Mundo, nosotros, yo. Ensayos cosmopoliéticos – Antonio Campillo',
-      categoryUrl: 'https://lapirateca.com/category/filosofia/',
-      category: 'Filosofia',
-      likes: 1
-    }
+    // {
+    //   postUrl: 'https://lapirateca.com/filosofia/mundo-nosotros-yo-ensayos-cosmopolieticos-antonio-campillo/',
+    //   img: 'https://lapirateca.com/wp-content/uploads/2023/01/9788425441202_1_2-400x612.jpg',
+    //   title: '15) Mundo, nosotros, yo. Ensayos cosmopoliéticos – Antonio Campillo',
+    //   categoryUrl: 'https://lapirateca.com/category/filosofia/',
+    //   category: 'Filosofia',
+    //   likes: 1
+    // }
   ]
 
   constructor() {
-    this.reorder5(this.posts)
+    this.reorder(4)
   }
 
   onResized(event: ResizedEvent) {
     console.log(Math.floor(event.newRect.width))
-    // if (Math.floor(event.newRect.width) >= 1200) {
-    //   this.reorder5(this.posts)
-    // } else if (Math.floor(event.newRect.width) >= 950 && Math.floor(event.newRect.width) < 1200) {
-    //   this.reorder4(this.posts)
-    // } else if (Math.floor(event.newRect.width) >= 620 && Math.floor(event.newRect.width) < 950) {
-    //   this.reorder3(this.posts)
-    // } else if (Math.floor(event.newRect.width) < 620) {
-    //   this.filteredPostsColumns = this.posts
-    // }
   }
 
-  reorder5(array: Post[]) {
-    let uno: Post[] = []
-    let dos: Post[] = []
-    let tres: Post[] = []
-    let cuatro: Post[] = []
-    let cinco: Post[] = []
-    for (let index = 0; index < array.length;) {
-      array[index] ? uno.push(array[index]) : null
-      index++
-      array[index] ? dos.push(array[index]) : null
-      index++
-      array[index] ? tres.push(array[index]) : null
-      index++
-      array[index] ? cuatro.push(array[index]) : null
-      index++
-      array[index] ? cinco.push(array[index]) : null
-      index++
+  reorder(numberOfArrays: number) {
+    const arrays: any[] = [];
+    for (let i = 0; i < numberOfArrays; i++) {
+      arrays.push([]);
     }
-    this.filteredPostsColumns = [[...uno], [...dos], [...tres], [...cuatro], [...cinco]]
-  }
-
-  reorder4(array: Post[]) {
-    let uno: Post[] = []
-    let dos: Post[] = []
-    let tres: Post[] = []
-    let cuatro: Post[] = []
-    for (let index = 0; index < array.length;) {
-      array[index] ? uno.push(array[index]) : null
-      index++
-      array[index] ? dos.push(array[index]) : null
-      index++
-      array[index] ? tres.push(array[index]) : null
-      index++
-      array[index] ? cuatro.push(array[index]) : null
-      index++
+    for (let i = 0; i < this.posts.length; i++) {
+      const index = i % numberOfArrays;
+      if (this.posts[i]) {
+        arrays[index].push(this.posts[i]);
+      }
     }
-    this.filteredPostsColumns = [[...uno], [...dos], [...tres], [...cuatro]]
-  }
-
-  reorder3(array: Post[]) {
-    let uno: Post[] = []
-    let dos: Post[] = []
-    let tres: Post[] = []
-    for (let index = 0; index < array.length;) {
-      array[index] ? uno.push(array[index]) : null
-      index++
-      array[index] ? dos.push(array[index]) : null
-      index++
-      array[index] ? tres.push(array[index]) : null
-      index++
-    }
-    this.filteredPostsColumns = [[...uno], [...dos], [...tres]]
+    this.filteredPostsColumns = arrays
     console.log(this.filteredPostsColumns)
   }
 

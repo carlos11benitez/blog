@@ -9,9 +9,6 @@
     position: relative;
   }
   @media (max-width: 1260px) {
-    #main-content {
-      /* width: 100%; */
-    }
     .blog-posts {
       width: 100%;
     }
@@ -27,12 +24,7 @@
     <div class="blog-posts flex flex-row flex-wrap">
       <div
         *ngFor="let filteredPostsRows of filteredPostsColumns"
-        class="px-2"
-        [ngClass]="
-          filteredPostsColumns.length > 1
-            ? 'basis-1/' + filteredPostsColumns.length
-            : 'basis-auto'
-        "
+        class="px-2 basis-1/4"
       >
         <app-blog-post-card
           *ngFor="let post of filteredPostsRows"
